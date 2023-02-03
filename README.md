@@ -20,3 +20,9 @@ Finally, the constructed Query is converted to a JSON string using the "json.Mar
 In the "main" function, a slice of filters is defined, and the "MagicBuildQuery" is called with it as the input. The returned Query is then converted to a JSON string and saved to a file.
 
 If any error occurs during the process, the program will print an error message and return. If everything goes well, the program will print a message indicating success.
+
+## Issue with the Output
+
+As i'm noob to this go lang so in this approch there is a problem is The function MagicBuildQuery() seems to be working as intended, as it splits the input string by "." and treats each segment as a key in a nested map. When it encounters a segment that ends with "[]", it treats the key as an array, which will contain maps that are matched against the conditions defined by the key-value pairs.
+
+In the input "interests.[].sport.name": "football", the keys are split into the following segments: ["interests", "", "sport", "name"]. The second segment, "", is not a valid key, so it would be better to handle this case differently, or to prevent it from happening in the first place.
