@@ -1,0 +1,13 @@
+{
+  "__query__": {
+    "interests": {
+      "": {
+        "__match__": {
+          "sport": {
+            "name": "football"
+          }
+        }
+      }
+    }
+  }
+}
