@@ -10,7 +10,7 @@ import (
 // Query represents a query in key-value format
 type Query map[string]interface{}
 
-// MagicBuildQuery constructs a query from the input query filters
+// BuildQuery constructs a query from the input query filters
 func MagicBuildQuery(filters []string) Query {
 	query := make(Query)
 	query["__query__"] = make(map[string]interface{})
@@ -49,7 +49,11 @@ func MagicBuildQuery(filters []string) Query {
 
 func main() {
 	filters := []string{
+		"name.first_name =Sam",
+		"address.country = United Kingdom",
 		"interests.[].sport.name = football",
+		"ingredients.[].milk.[].calcium = 10",
+		"info.[].transport. [] =car",
 	}
 	query := MagicBuildQuery(filters)
 
